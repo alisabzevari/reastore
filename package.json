@@ -1,0 +1,47 @@
+{
+  "name": "store",
+  "version": "0.1.0",
+  "description": "Dead simple state management for React",
+  "main": "./lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build": "npm run build:commonjs && npm run build:es",
+    "clean": "rimraf lib es",
+    "eslint": "eslint src test --ext js,jsx",
+    "prepublish": "npm run clean && npm run build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisabzevari/store.git"
+  },
+  "keywords": [
+    "react",
+    "state-management"
+  ],
+  "author": "Ali Sabzevari <alisabzevari@gmail.com> (https://github.com/alisabzevari)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alisabzevari/store/issues"
+  },
+  "homepage": "https://github.com/alisabzevari/store",
+  "devDependencies": {
+    "babel-cli": "~6.24.1",
+    "babel-core": "~6.25.0",
+    "babel-eslint": "~7.2.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "~6.24.1",
+    "babel-preset-react": "~6.24.1",
+    "cross-env": "~5.0.1",
+    "eslint": "~4.0.0",
+    "eslint-plugin-import": "~2.3.0",
+    "eslint-plugin-react": "~7.1.0",
+    "react": "~15.6.1",
+    "rimraf": "~2.6.1"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0-0"
+  }
+}

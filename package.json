@@ -11,7 +11,7 @@
     "build": "npm run build:commonjs && npm run build:es",
     "clean": "rimraf lib es",
     "eslint": "eslint src test --ext js,jsx",
-    "prepublish": "npm run clean && npm run build",
+    "prepublishOnly": "npm run clean && npm run build",
     "test": "jest"
   },
   "repository": {

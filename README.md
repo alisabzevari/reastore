@@ -1,4 +1,4 @@
-# Store
+# ReaStore
 This is a proof of concept for an extremely simple and powerful state management library for React. It is inspired by state management mechanism of React components.
 
 ## How it works

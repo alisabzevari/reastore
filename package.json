@@ -1,6 +1,6 @@
 {
   "name": "reastore",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Dead simple state management for React",
   "main": "./lib/index.js",
   "module": "es/index.js",

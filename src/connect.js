@@ -4,7 +4,6 @@ import { getAll } from './container';
 const connect = (mapStoresToProps) => (Component) => {
   class Connect extends React.Component {
 
-
     constructor() {
       super();
 

@@ -1,6 +1,7 @@
 export default class Store {
   constructor() {
     this.subscribers = [];
+    this.state = {};
   }
 
   setState(state) {
@@ -8,8 +9,8 @@ export default class Store {
     this.dispatch();
   }
 
-  subscribe(linstener) {
-    this.subscribers.push(linstener);
+  subscribe(listener) {
+    this.subscribers.push(listener);
 
     let isSubscribed = true;
 
@@ -20,9 +21,10 @@ export default class Store {
 
       isSubscribed = false;
 
-      const index = this.subscribers.indexOf(linstener);
+      const index = this.subscribers.indexOf(listener);
+
       this.subscribers.splice(index, 1);
-    }
+    };
   }
 
   dispatch() {

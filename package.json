@@ -1,10 +1,11 @@
 {
   "name": "reastore",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Dead simple state management for React",
   "main": "./lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
+  "typings": "./lib/index",
   "scripts": {
     "build:commonjs": "tsc",
     "build": "npm run build:commonjs",

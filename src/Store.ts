@@ -1,15 +1,21 @@
-export default class Store {
+export type Listener = () => void;
+export type Unsubscribe = () => void;
+
+export default class Store<T extends object = {}> {
+  private subscribers: Listener[];
+  private state: T;
+
   constructor() {
     this.subscribers = [];
-    this.state = {};
+    this.state = {} as T;
   }
 
-  setState(state) {
+  setState(state: T) {
     this.state = Object.assign({}, this.state, state);
     this.dispatch();
   }
 
-  subscribe(listener) {
+  subscribe(listener: Listener): Unsubscribe {
     this.subscribers.push(listener);
 
     let isSubscribed = true;

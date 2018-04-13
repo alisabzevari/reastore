@@ -1,6 +1,8 @@
+import { StoreMap } from './connect';
+
 let container = {};
 
-const register = (obj) => {
+const register = (obj: StoreMap) => {
   Object.assign(container, obj);
 }
 

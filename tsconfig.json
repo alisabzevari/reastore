@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "lib",
+    "sourceMap": false,
+    "declaration": true,
+    "module": "commonjs",
+    "removeComments": false,
+    "strict": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "lib": [
+      "es6"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

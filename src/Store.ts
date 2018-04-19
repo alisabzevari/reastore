@@ -3,7 +3,7 @@ export type Unsubscribe = () => void;
 
 export default class Store<T extends object = {}> {
   private subscribers: Listener[];
-  private state: T;
+  public state: T;
 
   constructor() {
     this.subscribers = [];

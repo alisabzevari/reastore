@@ -1,9 +1,4 @@
-import { register } from './container';
-import Store from './Store';
-import connect from './connect';
-
-export {
-  register,
-  Store,
-  connect
-};
+export * from './container';
+export * from './Store';
+export * from './connect';
+export * from './types';

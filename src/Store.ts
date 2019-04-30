@@ -1,7 +1,6 @@
-export type Listener = () => void;
-export type Unsubscribe = () => void;
+import { Listener, Unsubscribe } from "./types";
 
-export default class Store<T extends object = {}> {
+export class Store<T extends object = {}> {
   private subscribers: Listener[];
   public state: T;
 
@@ -10,7 +9,7 @@ export default class Store<T extends object = {}> {
     this.state = {} as T;
   }
 
-  setState(state: T) {
+  setState(state: Partial<T>) {
     this.state = Object.assign({}, this.state, state);
     this.dispatch();
   }

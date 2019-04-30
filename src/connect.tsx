@@ -1,17 +1,15 @@
 import * as React from 'react';
 import { getAll } from './container';
-import Store, { Unsubscribe } from './Store';
-export type StoreMap = { [storeName: string]: Store };
-export type MapStoresToProps<T> = (stores: StoreMap) => T;
+import { MapStoresToProps, StoreMap, Unsubscribe, ComponentEnhancer } from "./types";
 
-function connect<T>(mapStoresToProps: MapStoresToProps<T>) {
-  return (Cmp: React.ComponentClass) => (
-    class ConnectedComponent<T> extends React.Component<T> {
-      effectiveStoreNames: string[];
-      allStores: StoreMap;
-      unsubscribes: Unsubscribe[];
+export function connect<TFromStoreProps, TOtherProps>(mapStoresToProps: MapStoresToProps<TFromStoreProps>): ComponentEnhancer<TFromStoreProps, TOtherProps> {
+  return (Cmp: React.ComponentClass<TOtherProps>) => (
+    class ConnectedComponent extends React.Component<TFromStoreProps & TOtherProps> {
+      private effectiveStoreNames: string[];
+      private allStores: StoreMap;
+      private unsubscribes: Unsubscribe[];
 
-      constructor(props: T) {
+      constructor(props: TFromStoreProps & TOtherProps) {
         super(props);
 
         const rawStores = getAll();
@@ -63,7 +61,5 @@ function connect<T>(mapStoresToProps: MapStoresToProps<T>) {
 
       static displayName: string = `Connect(${ConnectedComponent.name || ConnectedComponent.displayName})`;
     }
-  )
+  );
 };
-
-export default connect;

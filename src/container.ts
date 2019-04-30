@@ -1,11 +1,11 @@
-import { StoreMap } from './connect';
+import { StoreMap } from './types';
 
-let container = {};
+let container: StoreMap = {};
 
-const register = (obj: StoreMap) => {
+export function register(obj: StoreMap) {
   Object.assign(container, obj);
 }
 
-const getAll = () => container;
-
-export { getAll, register };
+export function getAll() {
+  return container;
+}

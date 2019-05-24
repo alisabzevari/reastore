@@ -1,15 +1,9 @@
 import { Store } from "./Store";
-import { StatelessComponent, ComponentClass } from "react";
+import { ComponentClass } from "react";
 
 export type Listener = () => void;
 export type Unsubscribe = () => void;
 
-// export type Store<T extends object={}> = {
-//     state: T;
-//     setState: (state: T) => void;
-//     subscribe: (listener: Listener) => Unsubscribe;
-//     dispatch: () => void;
-// }
 export type StoreMap = { [storeName: string]: Store };
 export type MapStoresToProps<T> = (stores: StoreMap) => T;
 

@@ -75,3 +75,4 @@ dist
 lib
 coverage
 es
+.cache

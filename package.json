@@ -5,6 +5,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
+    "example": "parcel src/example/index.html",
     "build:commonjs": "tsc",
     "build": "npm run build:commonjs",
     "clean": "rimraf lib es",
@@ -33,12 +34,20 @@
   "homepage": "https://github.com/alisabzevari/reastore",
   "dependencies": {},
   "devDependencies": {
-    "@types/react": "~16.4.6",
-    "react": "~16.4.1",
+    "@types/enzyme": "^3.9.2",
+    "@types/jest": "^24.0.13",
+    "@types/react": "^16.8.18",
+    "@types/react-dom": "^16.8.4",
+    "enzyme": "^3.9.0",
+    "jest": "^24.8.0",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "rimraf": "~2.6.1",
-    "typescript": "~2.9.2"
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
   },
   "peerDependencies": {
-    "react": "15-16"
+    "react": "16"
   }
 }

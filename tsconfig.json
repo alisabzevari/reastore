@@ -8,9 +8,11 @@
     "moduleResolution": "node",
     "removeComments": false,
     "strict": true,
+    "strictFunctionTypes": false,
     "jsx": "react",
     "lib": [
-      "es6"
+      "es6",
+      "dom"
     ]
   },
   "include": [

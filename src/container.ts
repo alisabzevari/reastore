@@ -1,11 +1,17 @@
-import { StoreMap } from './types';
+import * as React from "react";
 
-let container: StoreMap = {};
+import { StoreMap } from "./types";
 
-export function register(obj: StoreMap) {
-  Object.assign(container, obj);
-}
+// export class Container {
+//   constructor(private stores: StoreMap = {}) {}
 
-export function getAll() {
-  return container;
-}
+//   register(obj: StoreMap) {
+//     Object.assign(this.stores, obj);
+//   }
+
+//   getAll() {
+//     return this.stores;
+//   }
+// }
+
+export const ContainerContext = React.createContext({});

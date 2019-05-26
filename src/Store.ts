@@ -32,7 +32,7 @@ export class Store<T extends object = {}> {
     };
   }
 
-  dispatch() {
+  private dispatch() {
     this.subscribers.forEach(listener => listener());
   }
 }

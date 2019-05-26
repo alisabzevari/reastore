@@ -2,11 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "lib",
-    "sourceMap": false,
+    "module": "esnext",
+    "sourceMap": true,
     "declaration": true,
-    "module": "commonjs",
     "moduleResolution": "node",
-    "removeComments": false,
     "strict": true,
     "strictFunctionTypes": false,
     "jsx": "react",
@@ -17,5 +16,8 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/example"
   ]
 }

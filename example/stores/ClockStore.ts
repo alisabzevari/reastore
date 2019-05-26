@@ -1,4 +1,4 @@
-import { Store } from "../../index";
+import { Store } from "reastore";
 
 export type ClockStoreState = {
   currentTime: string;

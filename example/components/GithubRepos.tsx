@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "../../index";
+import { connect } from "reastore";
 import { AllStores } from "../stores";
 
 export type Props = {

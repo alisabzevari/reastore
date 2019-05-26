@@ -1,6 +1,6 @@
 import * as React from "react";
 import { AllStores } from "../stores";
-import { connect } from "../../index";
+import { connect } from "reastore";
 
 const CurrentUser = ({
   username,

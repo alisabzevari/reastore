@@ -1,6 +1,6 @@
 import * as React from "react";
 import GithubRepos from "./GithubRepos";
-import { Provider } from "../../index";
+import { Provider } from "reastore";
 import { allStores } from "../stores";
 import CurrentUser from "./CurrentUser";
 

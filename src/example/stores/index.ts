@@ -1,9 +1,9 @@
-import { githubReposStore, GithubReposStore } from "./GithubReposStore";
+import { githubReposStore } from "./GithubReposStore";
+import { clockStore } from "./ClockStore";
 
 export const allStores = {
-  githubReposStore
+  githubReposStore,
+  clockStore
 };
 
-export type AllStores = {
-  githubReposStore: GithubReposStore
-}
+export type AllStores = typeof allStores;

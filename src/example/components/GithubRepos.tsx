@@ -60,6 +60,4 @@ const mapStoresToProps = ({ githubReposStore }: AllStores) => ({
   fetchRepos: githubReposStore.fetchRepos
 });
 
-const Cmmp = connect(mapStoresToProps)(GithubRepos);
-
-export default Cmmp;
+export default connect(mapStoresToProps)(GithubRepos);

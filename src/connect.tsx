@@ -6,7 +6,11 @@ import { Store } from "./Store";
 export function connect<TStoreRelatedProps, TOtherProps>(
   mapStoresToProps: MapStoresToProps<TStoreRelatedProps>
 ) {
-  return (Cmp: React.ComponentClass<TStoreRelatedProps & TOtherProps>) =>
+  return (
+    Cmp:
+      | React.ComponentClass<TStoreRelatedProps & TOtherProps>
+      | React.SFC<TStoreRelatedProps & TOtherProps>
+  ) =>
     class ConnectedComponent extends React.Component<
       TStoreRelatedProps & TOtherProps
     > {
@@ -46,8 +50,7 @@ export function connect<TStoreRelatedProps, TOtherProps>(
         return watchedStores;
       }
 
-      static displayName: string = `Connect(${Cmp.name ||
-        Cmp.displayName})`;
+      static displayName: string = `Connect(${Cmp.name || Cmp.displayName})`;
       static contextType = ContainerContext;
     } as React.ElementType<Partial<TStoreRelatedProps> & TOtherProps>;
 }

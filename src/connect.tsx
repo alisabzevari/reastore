@@ -10,11 +10,13 @@ export function connect<TStoreRelatedProps, TOtherProps>(
     Cmp:
       | React.ComponentClass<TStoreRelatedProps & TOtherProps>
       | React.SFC<TStoreRelatedProps & TOtherProps>
-  ) =>
+  ): React.ElementType<TStoreRelatedProps & TOtherProps> =>
     class ConnectedComponent extends React.Component<
       TStoreRelatedProps & TOtherProps
     > {
-      subscribedStores: { [storeName: string]: Unsubscribe } = {};
+      subscribedStores: {
+        [storeName: string]: Unsubscribe;
+      } = {};
 
       render() {
         const allStores: StoreMap = this.withAutoSubscribers(this.context);
@@ -23,6 +25,10 @@ export function connect<TStoreRelatedProps, TOtherProps>(
 
       componentWillUnmount() {
         Object.values(this.subscribedStores).forEach(u => u());
+      }
+
+      shouldComponentUpdate() {
+        return false;
       }
 
       subscribeToStore(name: string, store: Store) {
@@ -34,7 +40,6 @@ export function connect<TStoreRelatedProps, TOtherProps>(
 
       withAutoSubscribers(stores: StoreMap): StoreMap {
         const watchedStores: StoreMap = {};
-
         Object.keys(stores).forEach(key => {
           Object.defineProperty(watchedStores, key, {
             get: () => {
@@ -46,11 +51,10 @@ export function connect<TStoreRelatedProps, TOtherProps>(
             }
           });
         });
-
         return watchedStores;
       }
 
       static displayName: string = `Connect(${Cmp.name || Cmp.displayName})`;
       static contextType = ContainerContext;
-    } as React.ElementType<Partial<TStoreRelatedProps> & TOtherProps>;
+    };
 }

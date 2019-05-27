@@ -1,18 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "outDir": "lib",
-    "module": "esnext",
     "sourceMap": true,
+    "outDir": "dist",
     "declaration": true,
     "moduleResolution": "node",
     "strict": true,
+    "strictFunctionTypes": false,
     "jsx": "react",
-    "lib": [
-      "es6"
-    ]
-  },
-  "include": [
-    "src"
-  ]
+    "lib": ["es6", "dom"]
+  }
 }

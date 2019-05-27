@@ -42,4 +42,4 @@ const App = () => (
 );
 ```
 
-You can look at the [example directory](https://github.com/alisabzevari/reastore/tree/master/src/example) for a complete working example.
+You can look at the [example directory](https://github.com/alisabzevari/reastore/tree/master/example) for a complete working example.

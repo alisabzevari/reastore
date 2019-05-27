@@ -8,7 +8,8 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "rimraf lib",
     "prepublishOnly": "npm run clean && npm run build",
-    "test": "jest"
+    "test": "jest",
+    "test-ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
   },
   "files": [
     "lib",
@@ -35,6 +36,7 @@
     "@types/react": "^16.8.18",
     "enzyme": "^3.9.0",
     "jest": "^24.8.0",
+    "jest-junit": "^6.4.0",
     "react": "^16.8.6",
     "rimraf": "~2.6.1",
     "ts-jest": "^24.0.2",
@@ -44,6 +46,8 @@
     "react": ">=16"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "reporters": [ "default", "jest-junit" ],
+    "coverageReporters": ["text", "text-summary", "html", "cobertura"]
   }
 }

@@ -76,3 +76,4 @@ lib
 coverage
 es
 .cache
+junit.xml

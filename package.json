@@ -5,8 +5,8 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf lib es",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rimraf lib",
     "prepublishOnly": "npm run clean && npm run build",
     "test": "jest"
   },
@@ -42,5 +42,8 @@
   },
   "peerDependencies": {
     "react": ">=16"
+  },
+  "jest": {
+    "preset": "ts-jest"
   }
 }

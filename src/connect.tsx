@@ -11,7 +11,7 @@ export function connect<TStoreRelatedProps, TOtherProps>(
       | React.ComponentClass<TStoreRelatedProps & TOtherProps>
       | React.SFC<TStoreRelatedProps & TOtherProps>
   ): React.ElementType<TStoreRelatedProps & TOtherProps> =>
-    class ConnectedComponent extends React.Component<
+    class ConnectedComponent extends React.PureComponent<
       TStoreRelatedProps & TOtherProps
     > {
       subscribedStores: {
@@ -25,10 +25,6 @@ export function connect<TStoreRelatedProps, TOtherProps>(
 
       componentWillUnmount() {
         Object.values(this.subscribedStores).forEach(u => u());
-      }
-
-      shouldComponentUpdate() {
-        return false;
       }
 
       subscribeToStore(name: string, store: Store) {

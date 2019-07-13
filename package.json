@@ -8,6 +8,7 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "rimraf lib",
     "prepublishOnly": "npm run clean && npm run build",
+    "postpublish": "git tag -a v$(jq -r '.version' package.json) -m '$(git log --oneline $(git describe --tags --abbrev=0 @^)..@ --no-merges)' && git push --tags",
     "test": "jest",
     "test-ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
   },
@@ -47,7 +48,15 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "reporters": [ "default", "jest-junit" ],
-    "coverageReporters": ["text", "text-summary", "html", "cobertura"]
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "coverageReporters": [
+      "text",
+      "text-summary",
+      "html",
+      "cobertura"
+    ]
   }
 }

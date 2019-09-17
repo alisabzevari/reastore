@@ -20,4 +20,4 @@ const mapStoresToProps = ({ githubReposStore, clockStore }: AllStores) => ({
   time: clockStore.state.currentTime
 });
 
-export default connect(mapStoresToProps)(CurrentUser);
+export default connect(mapStoresToProps, CurrentUser)

@@ -28,7 +28,7 @@ const mapStoresToProps = ({ githubReposStore, sessionStore }) => (
   }
 );
 
-export default connect(mapStoresToProps)(GithubRepos);
+export default connect(mapStoresToProps, GithubRepos);
 ```
 
 3. **`Provider`**: Which is a very simple dependency container. Just Use this component on your application level and assign all stores to its `value` property.

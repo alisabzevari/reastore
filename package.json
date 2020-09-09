@@ -1,6 +1,6 @@
 {
   "name": "reastore",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Dead simple state management for React",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -8,7 +8,7 @@
     "build": "tsc -p tsconfig.build.json",
     "clean": "rimraf lib",
     "prepublishOnly": "npm run clean && npm run build",
-    "postpublish": "git tag -a v$(jq -r '.version' package.json) -m \"$(git log --oneline $(git describe --tags --abbrev=0 @^)..@ --no-merges)\" && git push --tags",
+    "postpublish": "git tag v$(jq -r '.version' package.json) -f -m \"$(git log --oneline $(git describe --tags --abbrev=0 @^)..@ --no-merges)\" && git push --tags",
     "test": "jest",
     "test-ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
   },
